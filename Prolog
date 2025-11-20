@@ -1,0 +1,31 @@
+% movie(Title, Genre, Director, Year).
+movie('inception', sci_fi, 'christopher_nolan', 2010).
+movie('interstellar', sci_fi, 'christopher_nolan', 2014).
+movie('the_dark_knight', action, 'christopher_nolan', 2008).
+movie('parasite', thriller, 'bong_joon_ho', 2019).
+movie('fight_club', drama, 'david_fincher', 1999).
+movie('the_social_network', biography, 'david_fincher', 2010).
+movie('dangal', sports, 'nitish_tiwari', 2016).
+movie('3_idiots', comedy, 'rajkumar_hirani', 2009).
+% acted_in(Actor, Movie).
+acted_in('leonardo_dicaprio', 'inception').
+acted_in('leonardo_dicaprio', 'the_dark_knight').
+acted_in('matthew_mcconaughey', 'interstellar').
+acted_in('song_kang_ho', 'parasite').
+acted_in('brad_pitt', 'fight_club').
+acted_in('jesse_eisenberg', 'the_social_network').
+acted_in('aamir_khan', 'dangal').
+acted_in('aamir_khan', '3_idiots').
+% Rules
+is_directed_by(Movie, Director) :-
+movie(Movie, _, Director, _).
+is_genre(Movie, Genre) :-
+movie(Movie, Genre, _, _).
+released_in_year(Movie, Year) :-
+movie(Movie, _, _, Year).
+movies_by_director(Director, Movie) :-
+movie(Movie, _, Director, _).
+movies_in_genre(Genre, Movie) :-
+movie(Movie, Genre, _, _).
+movies_by_actor(Actor, Movie) :-
+acted_in(Actor, Movie)
